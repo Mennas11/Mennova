@@ -41,4 +41,4 @@ function ProductCard({ product, picked = false }) {
   );
 }
 
-export default ProductCard;s
+export default ProductCard;
