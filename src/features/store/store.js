@@ -5,8 +5,7 @@ import cartReducer from "../cart/cartSlice";
 import authReducer from "../auth/authSlice";
 import wardrobeReducer from "../wardrobe/wardrobeSlice";
 import quizReducer from "../quiz/quizSlice";
-import themeReducer from "../theme/themeSlice";
-
+import themeReducer from "../Theme/themeSlice";
 const store = configureStore({
   reducer: {
     favorites: favoritesReducer,
