@@ -1,0 +1,219 @@
+.rack {
+  --cone: rgba(255, 236, 210, 0.07);
+  --shadow: rgba(0, 0, 0, 0.55);
+  --rail-a: #f3dcae;
+  --rail-b: #b98a4a;
+  --rail-c: #6f4f25;
+  position: relative;
+  padding: clamp(80px, 10vw, 140px) 0 clamp(50px, 6vw, 90px);
+  overflow: hidden;
+}
+:root[data-theme="light"] .rack {
+  --cone: rgba(255, 255, 255, 0.55);
+  --shadow: rgba(60, 25, 30, 0.35);
+  --rail-a: #e6c98d;
+  --rail-b: #a67a38;
+  --rail-c: #6a4a20;
+}
+
+.rack-head {
+  padding: 0 var(--pad);
+  margin-bottom: clamp(24px, 4vw, 48px);
+}
+.rack-head h2 {
+  margin: 14px 0 12px;
+  font-size: clamp(32px, 4vw, 54px);
+}
+.rack-head p {
+  max-width: 46ch;
+  margin: 0;
+  color: var(--mute);
+  font-size: 15px;
+}
+
+/* ---- the stage: rail, rods, light ---- */
+.rack-stage {
+  position: relative;
+  height: clamp(390px, 52vh, 460px);
+  overflow: hidden;
+  cursor: ew-resize;
+  touch-action: pan-y;
+  user-select: none;
+}
+.rack-cone {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: min(640px, 70%);
+  height: 100%;
+  transform: translateX(-50%);
+  background: linear-gradient(180deg, var(--cone), transparent 88%);
+  clip-path: polygon(38% 0, 62% 0, 100% 100%, 0 100%);
+  pointer-events: none;
+}
+.rack-rod {
+  position: absolute;
+  top: 0;
+  width: 3px;
+  height: 56px;
+  background: linear-gradient(90deg, var(--rail-c), var(--rail-a), var(--rail-c));
+}
+.rack-rail {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 52px;
+  height: 9px;
+  border-radius: 99px;
+  background: linear-gradient(180deg, var(--rail-a) 0%, var(--rail-b) 45%, var(--rail-c) 100%);
+  box-shadow: 0 10px 18px -4px rgba(0, 0, 0, 0.45);
+  z-index: 1;
+}
+
+/* ---- one hanging piece ---- */
+.rack-item {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--gold);
+  transform-origin: 50% 0;
+  will-change: transform, opacity;
+  cursor: pointer;
+}
+.rack-hanger {
+  display: block;
+  height: auto;
+  margin-bottom: -11px;
+  position: relative;
+  z-index: 2;
+}
+.rack-garment {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  transition: opacity 0.5s;
+  filter: drop-shadow(0 26px 20px var(--shadow));
+}
+.rack-garment img {
+  position: absolute;
+  display: block;
+  max-width: none;
+  height: auto;
+  pointer-events: none;
+}
+.rack-photo {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #f3e9dc;
+  box-shadow: 0 26px 24px -12px var(--shadow);
+}
+.rack-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  pointer-events: none;
+}
+.rack-photo em {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  padding: 3px 9px;
+  border-radius: 99px;
+  background: var(--pink);
+  color: var(--onpink);
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 500;
+}
+
+/* ---- arrows ---- */
+.rack-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 40;
+  width: 40px;
+  height: 40px;
+  margin-top: -20px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--mute);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+}
+.rack-arrow:hover {
+  border-color: var(--gold);
+  color: var(--ink);
+}
+.rack-arrow.prev {
+  left: var(--pad);
+}
+.rack-arrow.next {
+  right: var(--pad);
+}
+
+/* ---- details of the piece in the light ---- */
+.rack-details {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin: 0 var(--pad);
+  padding: 26px 0 0;
+  border-top: 1px solid var(--line);
+}
+.rack-details h3 {
+  font-size: clamp(24px, 2.6vw, 32px);
+  margin-bottom: 4px;
+}
+.rack-details span {
+  color: var(--mute);
+}
+.rack-actions {
+  display: flex;
+  gap: 10px;
+}
+.rack-heart.on {
+  border-color: var(--pink);
+  color: var(--pink);
+}
+.rack-upload {
+  padding: 28px var(--pad) 0;
+  text-align: center;
+}
+.rack-upload .text-link {
+  background: none;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  cursor: pointer;
+  font-family: var(--sans);
+}
+
+@media (max-width: 700px) {
+  .rack-arrow {
+    width: 38px;
+    height: 38px;
+    font-size: 22px;
+  }
+  .rack-details {
+    padding-top: 18px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rack-garment {
+    transition: none;
+  }
+}

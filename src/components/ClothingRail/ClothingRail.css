@@ -1,0 +1,158 @@
+.rail-hero {
+  --bg: #1d1015;
+  --ink: #f3e9dc;
+  --mute: #b9a493;
+  --gold: #d9b27c;
+  --pink: #ff4d8d;
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 50% 20%, #3a2029 0, var(--bg) 70%);
+  color: var(--ink);
+  cursor: ew-resize;
+  touch-action: pan-y;
+  user-select: none;
+}
+
+/* Zone 1: the rail with the clothes. Nothing else is drawn here. */
+.rail-stage {
+  position: relative;
+  height: 400px;
+  overflow: hidden;
+}
+
+.rail-bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 62px;
+  height: 6px;
+  background: linear-gradient(var(--gold), #8a6a43);
+  box-shadow: 0 8px 14px #0008;
+  z-index: 1;
+}
+
+.rail-item {
+  position: absolute;
+  top: 36px;
+  left: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--gold);
+  transform-origin: 50% 26px; /* swings from the hook */
+  will-change: transform;
+  cursor: pointer;
+}
+.rail-item:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 6px;
+}
+
+.rail-hanger {
+  display: block;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.rail-photo {
+  position: relative;
+  display: block;
+  margin-top: -2px;
+  aspect-ratio: 3 / 4;
+  background: #f3e9dc;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 22px 24px -10px #000a;
+}
+.rail-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  pointer-events: none;
+}
+.rail-photo em {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  padding: 3px 9px;
+  background: var(--pink);
+  color: #fff;
+  font: 500 11px "Jost", system-ui, sans-serif;
+  font-style: normal;
+  border-radius: 99px;
+}
+
+/* Zone 2: text, button and selected piece, always below the rail */
+.rail-footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 28px;
+  padding: 8px clamp(20px, 5vw, 64px) clamp(36px, 5vw, 60px);
+  cursor: default;
+}
+.rail-copy {
+  max-width: 560px;
+}
+.rail-copy h1 {
+  margin: 0 0 12px;
+  font: 400 clamp(38px, 5vw, 68px) / 0.98 "Cormorant Garamond", Georgia, serif;
+}
+.rail-copy p {
+  margin: 0 0 18px;
+  color: var(--mute);
+}
+.rail-upload {
+  padding: 12px 22px;
+  border: 1px solid var(--gold);
+  background: transparent;
+  color: var(--ink);
+  font: 500 15px "Jost", system-ui, sans-serif;
+  cursor: pointer;
+}
+.rail-upload:hover {
+  background: var(--pink);
+  border-color: var(--pink);
+}
+.rail-upload:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.rail-tag {
+  min-width: 240px;
+  padding: 18px 22px;
+  background: #2a1820;
+  border: 1px solid var(--gold);
+  color: var(--mute);
+}
+.rail-tag h3 {
+  margin: 0 0 4px;
+  color: var(--ink);
+  font: 400 26px "Cormorant Garamond", Georgia, serif;
+}
+.rail-tag button {
+  display: block;
+  width: 100%;
+  margin-top: 12px;
+  padding: 11px;
+  border: 0;
+  background: var(--pink);
+  color: #fff;
+  font: 500 15px "Jost", system-ui, sans-serif;
+  cursor: pointer;
+}
+
+@media (max-width: 700px) {
+  .rail-stage {
+    height: 360px;
+  }
+  .rail-copy p {
+    display: none;
+  }
+  .rail-tag {
+    width: 100%;
+  }
+}
