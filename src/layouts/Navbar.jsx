@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { logout } from "../features/auth/authSlice";
 import { clearQuiz } from "../features/quiz/quizSlice";
-import { toggleTheme } from "../features/theme/themeSlice";
+import { toggleTheme } from "../features/Theme/themeSlice";
 
 function Navbar() {
   const dispatch = useDispatch();

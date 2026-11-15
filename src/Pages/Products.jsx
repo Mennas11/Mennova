@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-import ProductCard from "../components/ProductCard";
+import ProductCard from "../components/productCard";
 import { fetchAllProducts, GROUPS } from "../services/productsAPI";
 import { rankProducts } from "../utils/recommend";
 

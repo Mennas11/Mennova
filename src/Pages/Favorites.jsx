@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-import ProductCard from "../components/ProductCard";
+import ProductCard from "../components/productCard";
 
 function Favorites() {
   const favorites = useSelector((state) => state.favorites);

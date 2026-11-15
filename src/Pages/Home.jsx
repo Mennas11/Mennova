@@ -4,9 +4,9 @@ import { useSelector } from "react-redux";
 
 import Hero3D from "../components/Hero3d";
 import LooksSection from "../components/looksSection";
-import ProductCard from "../components/ProductCard";
+import ProductCard from "../components/productCard";
 import Reveal from "../components/Reveal";
-import { fetchAllProducts } from "../services/productsApi";
+import { fetchAllProducts } from "../services/productsAPI";
 
 const WORDS = ["Find your tone", "Build your look", "Shop in one tap", "Dress like you mean it"];
 
